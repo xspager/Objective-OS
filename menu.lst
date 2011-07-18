@@ -1,0 +1,16 @@
+timeout 10
+default	1
+
+#splashimage=/boot/grub/splash/mars.xpm.gz
+
+title	Objective-OS
+root	(fd0)
+kernel	/boot/objos.elf
+
+title	Multiboot example
+root	(fd0)
+kernel /boot/multi.elf
+
+#title HD
+#root	(hd0)
+#chainloader +1

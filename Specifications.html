@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+	<head>
+		<title>The Objective-OS OS specifications</title>
+		<style>
+			*{ color: #D7D790; /* #D7D7D7; */}
+			p,h1,h2,h3,ol,ul{
+				background: #909090;
+				/*border: solid 1px black;*/
+				padding: 10px;
+			}
+			body{ background: #808080; }
+			h2{
+				counter-increment: topic;
+				counter-reset: subtopic;
+			}
+			h3{ counter-increment: subtopic; }
+			h2:before{ content: counter(topic) " - "; }
+			h2 h3{
+				counter-reset: subtopic;
+				counter-increment: topic;
+			}
+			h3:before{ content: counter(topic) "." counter(subtopic) " - "; }
+			li{ margin-left: 25px; }
+			li + ul{
+				background: #808080;
+				margin: 10px 0 10px 30px;
+			}
+			a{ color: #D8D8D8; }
+			/*hr{
+				padding: 5px;
+				margin: 10px;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<h1>The Objective-OS specifications</h1>
+		<dl>
+			<dd><i>Daniel Oliveira x_spager@yahoo.com.br</i></dd>
+		</dl>
+		<br />
+		<dl>
+				<dd><h4>ABSTRACT</h4><s>I believe that the design of the wonderful Linux, if it exist :), is poor. IMHO Linus aways try to put on Linux what him believe that is good, from may places he brought what is better, from projects and systems that are not similar to Linux, ones that I agree plenaly that are wonderful, and I study and take some ideas. But many times there things that can't be included on Linux without change many things. And not just Linus do this, far from this, many Open Source projects</s></dd>
+		</dl>
+			<h2>What is it?</h2>
+				<p>This are my ideas about how an operating system supposed to be. An Operating System written mostly in <a href="http://en.wikipedia.org/wiki/Objective-C">Objective-C</a> programing language, but in C too, and a little in assembly</p>
+			<hr />		
+
+			<h2>Why write a new operating system, an write it in Objective-C?</h2>
+				<p>First, 'cause I like operating systems and I want to know if I agree with Linus about write am OS. Second because it will make me go really deep on the computers, compute programing projects and in the software community. But there other reasons, like:
+					<ul>
+						<li>I believe in the end of the <a href="http://en.wikipedia.org/wiki/Linux" title="To absurdly don't know Linux">Linux</a>. As we say here on Brazil, <i>"o Linux já deu o que tinha que dar!"</i> (the Linux already give what it supposed to give), and I believe that the community could make more than what Linux now could be.</li>
+						<li>The Objective-C language give to the programmer the power and freedom of C (a hi-low level language) with the flexibility of the object oriented programing in a way that only Objective-C could do.</li>
+						<li><a href="http://en.wikipedia.org/wiki/GCC">GCC</a> compiles Objective-C, and it is available to any main computer architecture.</li>
+					</ul>
+				</p>
+			<hr />
+
+			<h2>Features wanted</h2>
+				<p>The order don't reflect the priority of the features</p>
+				<ol>
+					<li>Support to the Linux drivers to avoid problem with no compatible hardware</li>
+					<li>An <a href="http://en.wikipedia.org/wiki/Framework">Framework</a> to write a kernel written in Objective-C</li>
+					<li>Kernel architecture independent OS. (no meter if is micro, macro, monolithic, exo,...) :)))))</li>
+					<li><a href="http://en.wikipedia.org/wiki/Internalization">Internalization</a> from the start. (<a href="http://en.wikipedia.org/wiki/Unicode">Unicode</a>, <a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8</a>)</li>
+					<li>Implementation of the <a href="http://en.wikipedia.org/wiki/OpenStep">OpenStep</a>. (from <a href="http://en.wikipedia.org/wiki/GNUstep">GNUstep</a>?)</li>
+					<li>NO <a href="http://en.wikipedia.org/wiki/X">X!!!</a> To compatibility could be written a library to emulate X</li>
+					<li>Very hi integration between application</li>
+					<li>Extract all power from the resources</li>
+					<li>Distributed system. (in a <a href="http://en.wikipedia.org/wiki/Plan 9">Plan 9</a> way?)</li>
+					<li>Use of Plan 9 C compiler like syntax. <a href="#taskCCompliler">It create the need of a task</a>.</li>
+					<li>The system should run like it wasn't software, explaining, the OS shouldn't crash, freeze, reboot, it should behave like a hardware, question - answer, input - output.</li>
+					<li>Use GRUB as boot loader</li>
+					<li>Persistent enviroment storage, </li>
+					<li>Every thing could be changed by user, in two levels, a common user level, and a power user level</li>
+				</ol>
+				<h3>Support to the Linux drivers</h3>
+					<p>Could be implemented using glue code like in <a href="http://en.wikipedia.org/wiki/OSKit">OSKit</a>, after the system became useful, the drive code could be ported, rewritten or written.</p>
+				<h3>Framework to write kernels, write in Objective-C</h3>
+					<p>Would be the base to the OS kernel, and the future drivers</p>
+				<h3>Internalization</h3>
+					<p>Implementation of <a href="http://en.wikipedia.org/wiki/Unicode">Unicode</a> as the system character encoding</p>
+			<hr />
+
+			<h2>Status</h2>
+				<h3>Researching</h3>
+					<p>Start researching about we actually do with Objective-C, because first we would boot up the runtime environment</p>
+				<h3>Planing</h3>
+					<p>Almost started</p>
+				<h3>Researching</h3>
+				<h3>Locking for help</h3>
+				<h3>Discussing</h3>
+				<h3>Projecting</h3>
+				<h3>Discussing</h3>
+				<h3>Starting</h3>
+				<h3>Getting something</h3>
+			<hr />
+
+			<h2 title="The easy ones">Tasks</h2>
+				<ul>
+					<li id="taskCCompliler" name="taskCCompliler">Found a way of put Objective-C on the Plan 9 C compiler syntax, or Plan 9 syntax in GCC (that already know Objective-C)</li>
+					<li id="taskRuntime" name="taskRuntime">Write a runtime environment that would be the loaded in boot time to give to the kernel, the Objective-C basic runtime, to implements the object oriented environment.</li>
+					<li id="taskDPS" name="taskDPS">Write a Display PostScript System</li>
+					<li id="taskFrontEnd" name="taskFrontEnd">Write a GNUstep front-end and port it (GNUstep) to Objective-OS</li>
+					<li id="taskXLib" name="taskXLib">Write a libry to emulate the X server, libry, and anything else</li>
+					<li id="taskLibC" name="taskLibC">libC in Objective-C with Unicode and Mult-thehead suport</li>
+					<!--<li id="" name=""></li>-->
+				</ul>
+			<hr />
+
+			<h2>Reference</h2>
+				<ul>
+					<li>Plan 9 from BellLabs</li>
+						<ul>
+							<li><s>Plumb</s></li>
+							<li><s>9P</s></li>
+						</ul>
+						<li>OpenStep</li>
+					<li>GNUstep</li>
+					<li>Objective-C</li>
+					<li>Linux</li>
+					<li>OSKit</li>
+				</ul>
+			<hr />
+		<p><i>The Objective-OS specifications</i> Copyright &copy; 2007 Daniel Oliveira</p>
+		<p>Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.2
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled "GNU
+  Free Documentation License".</p>
+	</body>
+</html>
