@@ -82,7 +82,7 @@ void fill_cpu_id_struct(struct cpu_id *cpu_id_struct)
 			case IS_Intel:
 				cpu_id_struct->stepping_id = cpu_id_struct->raw_results[1].eax & INTEL_STEPING_ID_MASK;
 				cpu_id_struct->model_number = (cpu_id_struct->raw_results[1].eax & INTEL_MODEL_NUMBER_MASK) >> 4;
-			cpu_id_struct->family_code = (cpu_id_struct->raw_results[1].eax & INTEL_FAMILY_CODE_MASK) >> 8;
+				cpu_id_struct->family_code = (cpu_id_struct->raw_results[1].eax & INTEL_FAMILY_CODE_MASK) >> 8;
 				cpu_id_struct->processor_type = (cpu_id_struct->raw_results[1].eax & INTEL_PROCESSOR_TYPE_MASK) >> 12;
 				break;
 				cpu_id_struct->extended_model = (cpu_id_struct->raw_results[1].eax & INTEL_EXTENDED_MODEL_MASK) >> 19;

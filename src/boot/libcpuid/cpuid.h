@@ -27,6 +27,8 @@ typedef struct cpu_id{
 	u8 model_number; // 4 bits
 	u8 family_code; // 4 bits
 	u8 processor_type; // 2 bits
+	u8 extended_model; // 4 bits
+	u8 extended_family; // 8 bits
 	u8 fpu;
 	u8 vme;
 /*	brand_id;

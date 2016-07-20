@@ -1,6 +1,6 @@
 
 CC=gcc
-CFLAGS=-m32 -fno-builtin
+CFLAGS=-m32 -fno-builtin -I../../include
 
 all:	cpuid.o
 
