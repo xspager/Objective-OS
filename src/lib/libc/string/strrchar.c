@@ -2,4 +2,4 @@
 
 /* return the last occurence of c on str */
 char *
-strrchr(const char *str, char c)
+strrchr(const const *str, int c);

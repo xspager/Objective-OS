@@ -1,11 +1,11 @@
 MAKE=make
 CC=gcc
-CFLAGS=-m32 -nostdlib -nodefaultlibs -O0 -fno-builtin
+CFLAGS=-m32 -nostdlib -nodefaultlibs -O0 -fno-builtin -I../include
 LD=ld -z nodefaultlibs -m elf_i386
 
 all:	objos.elf
 
-objos.elf:	boot.o kernel.o beep.o libcrt libcpuid
+objos.elf:	boot.o kernel.o beep.o libc libcrt libcpuid
 	$(LD) -Ttext=0x100000 -o objos.elf boot.o kernel.o libcrt/crt.o ../lib/libc/string/strcpy.o ../lib/libc/string/strncmp.o ../lib/libc/string/strcmp.o libcpuid/cpuid.o beep.o
 
 
@@ -17,6 +17,9 @@ boot.o: boot.S multiboot.h
 
 beep.o: beep.asm
 	nasm -f elf -o beep.o beep.asm
+
+libc:
+	$(MAKE) -C ../lib/libc
 
 libcrt: libcrt/crt.o
 	$(MAKE) -C libcrt
