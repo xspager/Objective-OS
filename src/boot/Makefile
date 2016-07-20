@@ -1,7 +1,7 @@
-MAKE=gmake
+MAKE=make
 CC=gcc
 CFLAGS=-m32 -nostdlib -nodefaultlibs -O0 -fno-builtin
-LD=ld -z nodefaultlibs #-m elf_i386
+LD=ld -z nodefaultlibs -m elf_i386
 
 all:	objos.elf
 
@@ -18,10 +18,10 @@ boot.o: boot.S multiboot.h
 beep.o: beep.asm
 	nasm -f elf -o beep.o beep.asm
 
-libcrt:
+libcrt: libcrt/crt.o
 	$(MAKE) -C libcrt
 
-libcpuid:
+libcpuid: libcpuid/cpuid.o
 	$(MAKE) -C libcpuid
 
 install:	objos.elf

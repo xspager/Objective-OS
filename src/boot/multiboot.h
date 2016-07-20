@@ -27,9 +27,9 @@
      # define MULTIBOOT_HEADER_FLAGS         0x00010003 // 0000 0000 0011
      #endif
 
-	 #define	VIDEO_MODE		1
-	 #define	SCREEN_WIDTH		80
-	 #define	SCREEN_HEIGHT		25
+	 #define	VIDEO_MODE		0
+	 #define	SCREEN_WIDTH		0
+	 #define	SCREEN_HEIGHT		0
 	 #define	SCREEN_COLOR_DEPTH	0
 
      /* The magic number passed by a Multiboot-compliant boot loader. */

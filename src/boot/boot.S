@@ -48,6 +48,7 @@
              /* entry_addr */
              .long   multiboot_entry
      #endif /* ! __ELF__ */
+             .long 0, 0, 0, 0, 0
 	 		/* mode_type */
 	 		.long	VIDEO_MODE
 			/* width */
