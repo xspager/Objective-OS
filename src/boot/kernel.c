@@ -183,19 +183,21 @@ cmain (unsigned long magic, unsigned long addr) {
         printf(" cpu name = %s\n", cpuidres.proc_brand_string);
     }
 
+	/*
 	u32 lol;
 
 	printf("\n registers values:\n");
 
-	//printf("\t    EAX    |     EBX   |     ECX   |     EDX\n");
-	//for(lol = 0; lol <= cpuidres.max_sup_std_levl; lol++)
-	//	printf("%X\t0x%X| 0x%X| 0x%X| 0x%X\n", lol, cpuidres.raw_results[lol].eax, cpuidres.raw_results[lol].ebx, cpuidres.raw_results[lol].ecx, cpuidres.raw_results[lol].edx);
+	printf("\t    EAX    |     EBX   |     ECX   |     EDX\n");
+	for(lol = 0; lol <= cpuidres.max_sup_std_levl; lol++)
+		printf("%X\t0x%X| 0x%X| 0x%X| 0x%X\n", lol, cpuidres.raw_results[lol].eax, cpuidres.raw_results[lol].ebx, cpuidres.raw_results[lol].ecx, cpuidres.raw_results[lol].edx);
 	
 	printf("\n");
 	printf("Extended\n");
 	printf("\t    EAX    |     EBX   |     ECX   |     EDX\n");
 	for(lol = cpuidres.max_sup_std_levl + 1; lol <= cpuidres.max_sup_std_levl + cpuidres.max_ext_info_lvl - 0x80000000 + 1; lol++)
 		printf("%X\t0x%X| 0x%X| 0x%X| 0x%X\n", lol - cpuidres.max_sup_std_levl - 1 + 0x80000000, cpuidres.raw_results[lol].eax, cpuidres.raw_results[lol].ebx, cpuidres.raw_results[lol].ecx, cpuidres.raw_results[lol].edx); 
+	*/
 
 	unsigned char c = 0;
 
