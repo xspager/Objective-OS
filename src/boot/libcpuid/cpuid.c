@@ -41,8 +41,8 @@ extern void cpuid(struct cpu_id *ret)
 	/* extended level */
 	do_cpuid(0x80000000, &result[ret->max_sup_std_levl + 1]); // do the same for extended and store before the the standard on the results vector
 	ret->max_ext_info_lvl = result[ret->max_sup_std_levl + 1].eax;
-//	for(el = 0x80000001; el <= ret->max_ext_info_lvl; el++)
-//		do_cpuid(el, &result[ret->max_sup_std_levl + el - 0x80000000]);
+	for(el = 0x80000001; el <= ret->max_ext_info_lvl; el++)
+		do_cpuid(el, &result[ret->max_sup_std_levl + 1 + el - 0x80000000]);
 
 	fill_cpu_id_struct(ret);
 }
