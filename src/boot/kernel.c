@@ -187,11 +187,9 @@ cmain (unsigned long magic, unsigned long addr) {
 
 	printf("\n registers values:\n");
 
-
-	printf("\t    EAX    |     EBX   |     ECX   |     EDX\n");
-	for(lol = 0; lol <= cpuidres.max_sup_std_levl; lol++)
-		printf("%X\t0x%X| 0x%X| 0x%X| 0x%X\n", lol, cpuidres.raw_results[lol].eax, cpuidres.raw_results[lol].ebx, cpuidres.raw_results[lol].ecx, cpuidres.raw_results[lol].edx);
-	
+	//printf("\t    EAX    |     EBX   |     ECX   |     EDX\n");
+	//for(lol = 0; lol <= cpuidres.max_sup_std_levl; lol++)
+	//	printf("%X\t0x%X| 0x%X| 0x%X| 0x%X\n", lol, cpuidres.raw_results[lol].eax, cpuidres.raw_results[lol].ebx, cpuidres.raw_results[lol].ecx, cpuidres.raw_results[lol].edx);
 	
 	printf("\n");
 	printf("Extended\n");

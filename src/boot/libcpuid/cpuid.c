@@ -90,10 +90,29 @@ void fill_cpu_id_struct(struct cpu_id *cpu_id_struct)
 		}
 		cpu_id_struct->processor_signature = cpu_id_struct->raw_results[1].eax;
 		
-//	if(ret->max_sup_std_levl >= 4){ */// support brand string?
-/*			do_cpuid(0x800000002, result[ret->max_sup_std_levl + 1 + 2]);
-			do_cpuid(0x800000003, result[ret->max_sup_std_levl + 1 + 3]);
-			do_cpuid(0x800000004, result[ret->max_sup_std_levl + 1 + 4]);
-		}*/
+		if(cpu_id_struct->max_ext_info_lvl >= 0x80000004){ // support brand string?
+			int offset = cpu_id_struct->max_sup_std_levl + 1 + 2; // 0x80000002
+			// Fill the first 16 bytes
+			brand_str.part[0] = cpu_id_struct->raw_results[offset].eax;
+			brand_str.part[1] = cpu_id_struct->raw_results[offset].ebx;
+			brand_str.part[2] = cpu_id_struct->raw_results[offset].ecx;
+			brand_str.part[3] = cpu_id_struct->raw_results[offset].edx;
+			strcpy(cpu_id_struct->proc_brand_string, brand_str.string);
+
+			// Fill the next 16 bytes
+			brand_str.part[0] = cpu_id_struct->raw_results[offset+1].eax; // 0x80000003
+			brand_str.part[1] = cpu_id_struct->raw_results[offset+1].ebx;
+			brand_str.part[2] = cpu_id_struct->raw_results[offset+1].ecx;
+			brand_str.part[3] = cpu_id_struct->raw_results[offset+1].edx;
+			strcpy(cpu_id_struct->proc_brand_string + 16, brand_str.string);
+
+			// Fill the last 16 bytes
+			brand_str.part[0] = cpu_id_struct->raw_results[offset+2].eax; // 0x80000004
+			brand_str.part[1] = cpu_id_struct->raw_results[offset+2].ebx;
+			brand_str.part[2] = cpu_id_struct->raw_results[offset+2].ecx;
+			brand_str.part[3] = cpu_id_struct->raw_results[offset+2].edx;
+			strcpy(cpu_id_struct->proc_brand_string + 32, brand_str.string);
+
+		}
 	}
 } 
